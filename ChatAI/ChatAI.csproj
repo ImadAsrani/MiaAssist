@@ -1,0 +1,166 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Icos\**" />
+    <EmbeddedResource Remove="Icos\**" />
+    <None Remove="Icos\**" />
+    <Page Remove="Icos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="fonts\SFBOLD.OTF" />
+    <None Remove="fonts\SFPRODISPLAYBLACKITALIC.OTF" />
+    <None Remove="fonts\SFPRODISPLAYHEAVYITALIC.OTF" />
+    <None Remove="fonts\SFPRODISPLAYLIGHTITALIC.OTF" />
+    <None Remove="fonts\SFPRODISPLAYMEDIUM.OTF" />
+    <None Remove="fonts\SFPRODISPLAYREGULAR.OTF" />
+    <None Remove="fonts\SFPRODISPLAYSEMIBOLDITALIC.OTF" />
+    <None Remove="fonts\SFPRODISPLAYTHINITALIC.OTF" />
+    <None Remove="fonts\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
+    <None Remove="img\cargando.gif" />
+    <None Remove="img\cargando2.gif" />
+    <None Remove="img\close.png" />
+    <None Remove="img\definitivo.gif" />
+    <None Remove="img\efecto.png" />
+    <None Remove="img\efecto2.png" />
+    <None Remove="img\enviar.png" />
+    <None Remove="img\estatico.gif" />
+    <None Remove="img\ico.png" />
+    <None Remove="img\icono.png" />
+    <None Remove="img\icono2.png" />
+    <None Remove="img\max.png" />
+    <None Remove="img\micro.png" />
+    <None Remove="img\min.png" />
+    <None Remove="img\no.png" />
+    <None Remove="img\nueva.png" />
+    <None Remove="img\si.png" />
+    <None Remove="img\stop-button.png" />
+    <None Remove="img\stop.png" />
+    <None Remove="Sound\envio.mp3" />
+    <None Remove="Sound\envio1.wav" />
+    <None Remove="Sound\off.mp3" />
+    <None Remove="Sound\on.mp3" />
+    <None Remove="Sound\recibo.mp3" />
+    <None Remove="vosk-model-small-es-0.42\am\final.mdl" />
+    <None Remove="vosk-model-small-es-0.42\conf\mfcc.conf" />
+    <None Remove="vosk-model-small-es-0.42\conf\model.conf" />
+    <None Remove="vosk-model-small-es-0.42\graph\disambig_tid.int" />
+    <None Remove="vosk-model-small-es-0.42\graph\Gr.fst" />
+    <None Remove="vosk-model-small-es-0.42\graph\HCLr.fst" />
+    <None Remove="vosk-model-small-es-0.42\ivector\final.dubm" />
+    <None Remove="vosk-model-small-es-0.42\ivector\final.ie" />
+    <None Remove="vosk-model-small-es-0.42\ivector\final.mat" />
+    <None Remove="vosk-model-small-es-0.42\ivector\global_cmvn.stats" />
+    <None Remove="vosk-model-small-es-0.42\ivector\online_cmvn.conf" />
+    <None Remove="vosk-model-small-es-0.42\ivector\splice.conf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="vosk-model-small-es-0.42\am\final.mdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\conf\mfcc.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\conf\model.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\graph\disambig_tid.int">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\graph\Gr.fst">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\graph\HCLr.fst">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\ivector\final.dubm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\ivector\final.ie">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\ivector\final.mat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\ivector\global_cmvn.stats">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\ivector\online_cmvn.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vosk-model-small-es-0.42\ivector\splice.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\definitivo.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Speech" Version="9.0.2" />
+    <PackageReference Include="Vosk" Version="0.3.38" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fonts\SFPRODISPLAYBLACKITALIC.OTF" />
+    <Resource Include="fonts\SFBOLD.OTF" />
+    <Resource Include="fonts\SFPRODISPLAYHEAVYITALIC.OTF" />
+    <Resource Include="fonts\SFPRODISPLAYLIGHTITALIC.OTF" />
+    <Resource Include="fonts\SFPRODISPLAYMEDIUM.OTF" />
+    <Resource Include="fonts\SFPRODISPLAYREGULAR.OTF" />
+    <Resource Include="fonts\SFPRODISPLAYSEMIBOLDITALIC.OTF" />
+    <Resource Include="fonts\SFPRODISPLAYTHINITALIC.OTF" />
+    <Resource Include="fonts\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
+    <Resource Include="img\cargando.gif" />
+    <Resource Include="img\cargando2.gif" />
+    <Resource Include="img\close.png" />
+    <Resource Include="img\efecto.png" />
+    <Resource Include="img\efecto2.png" />
+    <Resource Include="img\enviar.png" />
+    <Resource Include="img\estatico.gif" />
+    <Resource Include="img\ico.png" />
+    <Resource Include="img\icono.png" />
+    <Resource Include="img\icono2.png" />
+    <Resource Include="img\max.png" />
+    <Resource Include="img\micro.png" />
+    <Resource Include="img\min.png" />
+    <Resource Include="img\no.png" />
+    <Resource Include="img\nueva.png" />
+    <Resource Include="img\si.png" />
+    <Resource Include="img\stop-button.png" />
+    <Resource Include="img\stop.png" />
+    <Resource Include="Sound\envio.mp3" />
+    <Resource Include="Sound\off.mp3" />
+    <Resource Include="Sound\on.mp3" />
+    <Resource Include="Sound\recibo.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

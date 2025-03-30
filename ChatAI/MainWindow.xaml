@@ -1,0 +1,303 @@
+﻿<Window
+    x:Class="ChatAI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+    xmlns:local="clr-namespace:ChatAI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="600"
+    MinWidth="300"
+    MinHeight="500"
+    AllowsTransparency="True"
+    Background="Transparent"
+    MouseDown="Window_MouseDown"
+    ResizeMode="CanResizeWithGrip"
+    StateChanged="Window_StateChanged"
+    WindowStyle="None"
+    mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen">
+
+
+
+    <Border Background="#e0e0e0" CornerRadius="15">
+
+        <Grid Margin="15,5,15,15">
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+            <Image
+                Height="20"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                Source="/img/ico.png" />
+            <Label
+                Margin="28,7,0,0"
+                Content="Mia Assist"
+                FontFamily="fonts/#SF Pro Display Bold"
+                FontSize="13" />
+
+            <Grid Grid.Row="0" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    x:Name="cerrar"
+                    Grid.Column="2"
+                    Height="28"
+                    MouseEnter="cerrar_MouseEnter"
+                    MouseLeave="cerrar_MouseLeave"
+                    MouseLeftButtonDown="cerrar_MouseLeftButtonDown"
+                    Source="/img/close.png" />
+
+
+                <Image
+                    x:Name="maximizar"
+                    Grid.Column="1"
+                    Height="20"
+                    Margin="5,0,5,0"
+                    MouseEnter="maximizar_MouseEnter"
+                    MouseLeave="maximizar_MouseLeave"
+                    MouseLeftButtonDown="maximizar_MouseLeftButtonDown"
+                    Source="/img/max.png" />
+                <Image
+                    x:Name="minimizar"
+                    Grid.Column="0"
+                    Height="25"
+                    Margin="0,0,2,0"
+                    MouseEnter="minimizar_MouseEnter"
+                    MouseLeave="minimizar_MouseLeave"
+                    MouseLeftButtonDown="minimizar_MouseLeftButtonDown"
+                    Source="/img/min.png" />
+
+
+            </Grid>
+
+
+
+
+
+            <ScrollViewer
+                x:Name="scrol"
+                Grid.Row="1"
+                Margin="0,0,0,10"
+                VerticalScrollBarVisibility="Hidden">
+                <ListBox
+                    x:Name="milista"
+                    Margin="0,0,0,10"
+                    VerticalAlignment="Bottom"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    IsHitTestVisible="false"
+                    ItemsSource="{Binding Mensajes}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+
+
+                    <ListBox.ItemTemplate>
+
+
+                        <DataTemplate>
+
+                            <Grid Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ListBox}}">
+
+                                <Border
+                                    Margin="5,5,20,10"
+                                    Padding="8"
+                                    HorizontalAlignment="{Binding EsUsuario, Converter={StaticResource BoolToAligmentConverter}}"
+                                    Background="{Binding EsUsuario, Converter={StaticResource BoolToColorConverter}}"
+                                    CornerRadius="10">
+                                    <TextBlock
+                                        HorizontalAlignment="Right"
+                                        FontFamily="fonts/#SF Pro Display Regular"
+                                        FontSize="14"
+                                        Text="{Binding Contenido}"
+                                        TextAlignment="{Binding EsUsuario, Converter={StaticResource BoolToAligmentConverter}}"
+                                        TextWrapping="Wrap" />
+                                    <Border.Effect>
+                                        <DropShadowEffect
+                                            BlurRadius="10"
+                                            Direction="0"
+                                            Opacity="0.2"
+                                            ShadowDepth="-5"
+                                            Color="Gray" />
+                                    </Border.Effect>
+                                </Border>
+
+                            </Grid>
+
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </ScrollViewer>
+
+            <Image
+                x:Name="efecto"
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Source="img/efecto2.png"
+                Visibility="Hidden"
+                Height="170"
+                Width="170"/>
+            <Image
+                x:Name="animacion"
+                Grid.Row="1"
+                Width="150"
+                Height="150"
+                VerticalAlignment="Center"
+                gif:ImageBehavior.AnimatedSource="img/definitivo.gif"
+                Visibility="Hidden" />
+
+
+
+            <Grid Grid.Row="3">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="35" />
+                    <ColumnDefinition Width="35" />
+                </Grid.ColumnDefinitions>
+
+
+
+                <Border
+                    x:Name="bordeescribir"
+                    Background="White"
+                    CornerRadius="15,15,15,15">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Direction="0"
+                            Opacity="0.5"
+                            ShadowDepth="-5"
+                            Color="Gray" />
+                    </Border.Effect>
+                </Border>
+                <Label
+                    x:Name="lblplaceholder"
+                    Margin="10,6,0,0"
+                    Content="Preguntame algo..."
+                    FontFamily="fonts/#SF Pro Display Regular"
+                    FontSize="14"
+                    Foreground="gray" />
+                <TextBox
+                    x:Name="pregunta"
+                    Grid.Column="0"
+                    Margin="12,11,40,0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    FontFamily="fonts/#SF Pro Display Regular"
+                    FontSize="14"
+                    Foreground="gray"
+                    GotFocus="pregunta_GotFocus"
+                    Text="{Binding Texto, UpdateSourceTrigger=PropertyChanged}"
+                    TextChanged="pregunta_TextChanged" />
+                <Button
+                    x:Name="botonenviar"
+                    Grid.Column="0"
+                    Height="20"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding EnviarMensajeCommand}"
+                    IsEnabled="{Binding PuedeEnviar}">
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Image x:Name="ImgBoton" Source="img/icono.png" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="ImgBoton" Property="Opacity" Value="0.5" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ImgBoton" Property="Source" Value="img/icono2.png" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter TargetName="ImgBoton" Property="Source" Value="img/icono.png" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+                <Image
+                    x:Name="botonparar"
+                    Grid.Column="0"
+                    Height="30"
+                    Margin="0,0,5,0"
+                    HorizontalAlignment="Right"
+                    MouseEnter="botonparar_MouseEnter"
+                    MouseLeave="botonparar_MouseLeave"
+                    Source="/img/stop-button.png"
+                    Visibility="Hidden" />
+
+
+
+                <Image
+                    x:Name="microfono"
+                    Grid.Column="1"
+                    Height="25"
+                    MouseEnter="microfono_MouseEnter"
+                    MouseLeave="microfono_MouseLeave"
+                    MouseLeftButtonDown="microfono_MouseLeftButtonDown"
+                    Source="/img/micro.png" />
+
+                <Image
+                    x:Name="nueva"
+                    Grid.Column="3"
+                    Height="20"
+                    MouseEnter="nueva_MouseEnter"
+                    MouseLeave="nueva_MouseLeave"
+                    Source="/img/nueva.png" />
+
+                <ToggleButton
+                    x:Name="altavoz"
+                    Grid.Column="2"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="altavoz_Click"
+                    IsChecked="{Binding IsSpeechEnabled}"
+                    MouseEnter="altavoz_MouseEnter"
+                    MouseLeave="altavoz_MouseLeave">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Grid>
+                                <Image x:Name="ImgBoton" Source="{Binding IsSpeechEnabled, Converter={StaticResource BoolToImageConverter}}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="ImgBoton" Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+
+            </Grid>
+
+
+
+        </Grid>
+
+    </Border>
+</Window>

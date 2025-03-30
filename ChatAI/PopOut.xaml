@@ -1,0 +1,61 @@
+﻿<Window x:Class="ChatAI.PopOut"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Confirmación"
+        Height="150"
+        Width="320"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+
+    <Border Margin="10" Background="#e0e0e0" CornerRadius="10" MouseDown="Border_MouseDown">
+
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" Direction="320" ShadowDepth="2" Opacity="0.2" Color="Black"/>
+        </Border.Effect>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Content="¿Estás seguro?"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontFamily="fonts/#SF Pro Display Bold"
+                   FontWeight="Bold"
+                   FontSize="16" Margin="0,10,0,0" />
+
+            <Label Content="Se eliminará toda la conversación"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        FontFamily="fonts/#SF Pro Display Regular"
+        FontSize="13" Margin="0,45,0,0" />
+
+
+            <Label 
+                x:Name="btnAceptar"
+                FontSize="17"
+                Foreground="#02BC7D"
+                FontFamily="fonts/#SF Pro Display Regular"
+                Content="Aceptar"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center" MouseLeftButtonDown="btnAceptar_MouseLeftButtonDown" MouseEnter="btnAceptar_MouseEnter" MouseLeave="btnAceptar_MouseLeave" Margin="0,73,0,0">
+
+
+            </Label>
+
+
+
+            <Image
+                x:Name="btnCancelar"
+                Source="/img/close.png" Margin="261,-5,-3,93" MouseLeftButtonDown="btnCancelar_MouseLeftButtonDown" MouseEnter="btnCancelar_MouseEnter" MouseLeave="btnCancelar_MouseLeave" />
+        </Grid>
+    </Border>
+</Window>

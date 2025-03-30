@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ChatAI" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Type" Type="System.String" Scope="User">
+      <Value Profile="(Default)">gemini-1.5-flash</Value>
+    </Setting>
+    <Setting Name="URLServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:1337/v1/chat/completions</Value>
+    </Setting>
+    <Setting Name="Instruccion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Me llamo Goyo y soy un asistente que habla en español.</Value>
+    </Setting>
+    <Setting Name="TypeCasa" Type="System.String" Scope="User">
+      <Value Profile="(Default)">qwen2.5-coder-7b-instruct</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
