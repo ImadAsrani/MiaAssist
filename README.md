@@ -31,10 +31,12 @@ Mia Assist es una aplicación de escritorio desarrollada en WPF con C# que actú
 
 ## Capturas de Pantalla
 
-![4](https://i.ibb.co/d4MRzFvc/4.png)
-![3](https://i.ibb.co/20g7Ms6L/3.png)
-![2](https://i.ibb.co/B2WtHgN9/2.png)
+
 ![1](https://i.ibb.co/tMNxcbgZ/1.png)
+![2](https://i.ibb.co/B2WtHgN9/2.png)
+![3](https://i.ibb.co/20g7Ms6L/3.png)
+![4](https://i.ibb.co/d4MRzFvc/4.png)
+
 
 ---
 
